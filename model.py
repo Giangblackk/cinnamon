@@ -24,15 +24,3 @@ def build_model():
     # model.summary()
 
     return model
-
-
-# def predict(img_path):
-#     # read to numpy array
-#     X = cv2.imread(img_path)
-#     # resize
-#     X = cv2.resize(X, (224, 224))
-#     # expand to batch
-#     X = np.expand_dims(X, axis=0)
-
-#     # return model.predict(X)
-#     return X
