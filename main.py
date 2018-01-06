@@ -1,11 +1,13 @@
 import argparse
 import cv2
 import numpy as np
+import pickle
 
 from model import build_model
 
 
 WEIGHT_PATH = 'model/cnn.h5'
+LABELS_PATH = 'model/labels.pickle'
 
 
 def main():
@@ -19,7 +21,12 @@ def main():
     model = build_model()
     model.load_weights(WEIGHT_PATH)
 
-    # Predict
+    # Load labels
+    with open(LABELS_PATH, 'rb') as f:
+        # idx_to_label
+        labels = pickle.load(f)
+
+    # Load data and preprocess
     X = cv2.imread(args.image)
     # resize
     X = cv2.resize(X, (224, 224))
@@ -27,7 +34,9 @@ def main():
     X = np.expand_dims(X, axis=0)
 
     # predict with X
-    print(model.predict(X))
+    pred = model.predict(X)
+    label_idx = int(pred[0][0])
+    print(labels[label_idx])
 
 
 if __name__ == "__main__":
