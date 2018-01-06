@@ -45,7 +45,7 @@ def main():
         images = os.listdir(args.image)
         # Load data
         X = []
-        for image in images:
+        for image in sorted(images):
             image_path = os.path.join(args.image, image)
             x = cv2.imread(image_path)
             x = cv2.resize(x, (224, 224))
