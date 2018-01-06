@@ -1,5 +1,5 @@
 ## Train/research
-[main.ipynb](https://nbviewer.jupyter.org/github/Giangblackk/cinnamon/blob/master/main.ipynb)
+[main_v2.ipynb](https://nbviewer.jupyter.org/github/Giangblackk/cinnamon/blob/master/main_v2.ipynb)
 
 Already trained model weights are stored in `model/cnn.h5`
 
